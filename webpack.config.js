@@ -46,6 +46,7 @@ Encore.setPublicPath('/assets')
 |
 */
 Encore.addEntry('app', './resources/js/app.js')
+Encore.addStyleEntry('sasslib', './resources/css/sasslib.css')
 
 /*
 |--------------------------------------------------------------------------
