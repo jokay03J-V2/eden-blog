@@ -4,7 +4,6 @@
  * Feel free to let us know via PR, if you find something broken in this config
  * file.
  */
-
 import Env from '@ioc:Adonis/Core/Env'
 import Application from '@ioc:Adonis/Core/Application'
 import { DatabaseConfig } from '@ioc:Adonis/Lucid/Database'
