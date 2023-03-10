@@ -1,0 +1,5 @@
+{
+  "assets/app.css": "http://localhost:8080/assets/app.css",
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/sasslib.css": "http://localhost:8080/assets/sasslib.css"
+}

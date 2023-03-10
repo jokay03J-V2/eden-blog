@@ -66,6 +66,7 @@
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.1.0",
     "@adonisjs/view": "^6.2.0",
+    "@jokay03j-v2/sasslib": "^1.1.5",
     "luxon": "^3.3.0",
     "phc-argon2": "^1.1.4",
     "proxy-addr": "^2.0.7",
