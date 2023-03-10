@@ -9,7 +9,7 @@ export default class AuthController {
 
   public async register({ response, request, auth, logger }: HttpContextContract) {
     const requestPayload = schema.create({
-      username: schema.string({ trim: true }, [
+      username: schema.string({}, [
         rules.minLength(3),
         rules.maxLength(30),
         rules.unique({ table: 'users', column: 'username' }),
