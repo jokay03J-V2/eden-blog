@@ -46,4 +46,22 @@ export default class AuthController {
 
     return response.redirect().back()
   }
+  
+  public async loginShow({ view }: HttpContextContract) {
+    return view.render('auth/login')
+  }
+
+  public async login({ request, auth, response, session }: HttpContextContract) {
+    const userSchema = schema.create({
+      email: schema.string({ trim: true }, [rules.email()]),
+      password: schema.string({}),
+    })
+
+    const { email, password } = await request.validate({
+      schema: userSchema,
+      messages: {
+        'required': 'le champs {{field}} est obligatoire',
+        'email.email': "l'email n'est pas valide",
+       }
+    })
 }

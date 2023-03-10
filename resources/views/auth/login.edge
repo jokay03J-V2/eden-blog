@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eden blog - connexion</title>
+  @entryPointStyles('sasslib')
+</head>
+<body>
+
+    <header>
+    @include('partials/navbar')
+    </header>
+
+  <main class="d--flex f--direction--column items--center">
+    <h1 class="text--lg">Connexion</h1>
+    <form method="post" action="{{ route('auth.login') }}"
+            class="card border--none w--5-6 d--flex f--direction--column items--center">
+            {{ inspect(auth.isLoggedIn) }}
+            @if(flashMessages.has('errors'))
+              @each(error in flashMessages.get('errors'))
+               <small class="text--red">{{error}}</small> 
+              @end
+              
+            @end
+            <label for="email" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">Email</label>
+            <input required class="border--primary border--2 border--solid rounded--xs min--h--1 w--5-6"
+                placeholder="entrer votre email" name="email" type="email" minlength="3" maxlength="30"
+                autocomplete="email" />
+            <label for="password" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">Mot de passe</label> 
+            <input required class="border--primary border--2 border--solid rounded--xs min--h--1 w--5-6"
+                placeholder="entrer votre mot de passe" name="password" type="password" minlength="3"
+                autocomplete="password" />
+            <button type="submit" class="btn--primary mt--2 text--white text--sm mb--1">Connexion</button>
+            <hr class="bg--primary--light--3 w--4-6 border--none" style="height: 2px;">
+            <p class="md--text--sm">Pas de compte ?</p>
+            <a class="text--primary md--text--sm">S'inscrire</a>
+        </form>
+  </main>
+</body>
+</html>
