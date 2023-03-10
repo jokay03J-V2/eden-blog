@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eden blog - Inscription</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    @entryPointStyles('sasslib')
+</head>
+
+<body>
+    <header>
+        @include('partials/navbar')
+    </header>
+    <main class="d--flex f--direction--column items--center">
+        <h1 class="text--lg my--1">Inscription</h1>
+        <form method="post" action="{{ route('auth.register') }}"
+            class="card border--none w--5-6 d--flex f--direction--column items--center py--3">
+            @if(flashMessages.has('errors'))
+            @each(error in flashMessages.get('errors'))
+            <small class="text--red">{{error}}</small>
+            @end
+            @end
+            <label for="password" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">surnom:</label>
+            <input required class="border--primary border--2 border--solid rounded--xs min--h--1 w--5-6 pl--1"
+                placeholder="entrer votre surnom" name="username" type="text" minlength="3" maxlength="30"
+                autocomplete="username" />
+            <label for="password" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">email:</label>
+            <input required class="border--primary border--2 border--solid rounded--xs min--h--1 w--5-6 pl--1"
+                placeholder="entrer votre adresse mail" name="email" type="email" minlength="3" autocomplete="email" />
+            <label for="password" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">mot de
+                passe:</label>
+            <input required class="border--primary border--2 border--solid rounded--xs min--h--1 w--5-6 pl--1"
+                placeholder="entrer votre mot de passe" name="password" type="password" minlength="1"
+                autocomplete="new-password" />
+            <button type="submit" class="btn--primary mt--2 text--white text--sm">inscription</button>
+            <hr class="bg--primary--light--3 w--4-6 border--none my--1" style="height: 2px;" />
+            <span class="md--text--sm">déjà un compte ?</span>
+            <a class="text--primary md--text--sm" href="/login" style="text-decoration: none;">connexion</a>
+        </form>
+    </main>
+</body>
+
+</html>
