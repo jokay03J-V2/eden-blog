@@ -46,7 +46,7 @@ export default class AuthController {
 
     return response.redirect().back()
   }
-  
+
   public async loginShow({ view }: HttpContextContract) {
     return view.render('auth/login')
   }
@@ -62,6 +62,16 @@ export default class AuthController {
       messages: {
         'required': 'le champs {{field}} est obligatoire',
         'email.email': "l'email n'est pas valide",
-       }
+      },
     })
+
+    try {
+      await auth.attempt(email, password)
+    } catch (error) {
+      session.flash('errors', ['Ton email ou ton mot de passe est incorrect'])
+      return response.redirect().back()
+    }
+
+    return response.redirect().back()
+  }
 }
