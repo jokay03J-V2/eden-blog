@@ -39,4 +39,8 @@ export default class PostsController {
     if (!auth.isLoggedIn) response.redirect().back()
     return view.render('post/create')
   }
+
+  public latestShow({ view }: HttpContextContract) {
+    return view.render('home')
+  }
 }
