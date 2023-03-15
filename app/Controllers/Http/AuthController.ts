@@ -68,8 +68,10 @@ export default class AuthController {
     try {
       await auth.attempt(email, password)
     } catch (error) {
+      console.log(error)
+
       session.flash('errors', ['Ton email ou ton mot de passe est incorrect'])
-      return response.redirect().back()
+      return response.redirect('/')
     }
 
     return response.redirect().back()
