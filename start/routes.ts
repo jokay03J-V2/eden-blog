@@ -20,3 +20,4 @@
 
 import './routes/auth'
 import './routes/post'
+import './routes/home'
