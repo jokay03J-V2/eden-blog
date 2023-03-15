@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eden blog - nouveau post</title>
+    @entryPointStyles('sasslib')
+    @entryPointStyles('app')
+</head>
+
+<body>
+
+    <header>
+        @include('partials/navbar')
+    </header>
+
+    <main class="d--flex f--direction--column items--center">
+        <h1 class="text--lg w--full h--3 text--white home--title d--flex justify--center items--center">
+            Accueil</h1>
+        <div class="d--flex f--direction--column items--center my--1 w--full">
+            @component('components/postCard', { title: 'title', description: 'ejfbd', author: { username: 'userna'}})
+
+            @end
+        </div>
+    </main>
+</body>
+
+</html>
