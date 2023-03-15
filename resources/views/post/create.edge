@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eden blog - nouveau post</title>
+    @entryPointStyles('sasslib')
+</head>
+
+<body>
+
+    <header>
+        @include('partials/navbar')
+    </header>
+
+    <main class="d--flex f--direction--column items--center">
+        <h1 class="text--lg">Nouveau post</h1>
+        <form method="post" action="{{ route('post.create') }}" enctype="multipart/form-data"
+            class="card border--none w--5-6 d--flex f--direction--column items--center">
+            @if(flashMessages.has('errors'))
+            @each(error in flashMessages.get('errors'))
+            <small class="text--red">{{error}}</small>
+            @end
+
+            @end
+            <label for="title" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">Titre du post</label>
+            <input required class="border--primary border--2 border--solid rounded--xs min--h--1 w--5-6"
+                placeholder="entrer le titre de votre post" name="title" type="text" minlength="3" maxlength="30"
+                autocomplete="off" />
+            <label for="image" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">Image</label>
+            <input required type="file" name="image" id="image" class="w--5-6 text--primary">
+            <label for="content" class="my--1 text--primary--dark--2 d--flex w--5-6 items--start">Contenu</label>
+            <textarea required class="p--1 border--primary border--2 border--solid rounded--xs min--h--1  w--5-6"
+                placeholder="entrer du contenu" name="content" minlength="3" style="max-width: 90%;"></textarea>
+            <button type="submit" class="btn--primary mt--2 text--white text--sm mb--1">Crée</button>
+        </form>
+    </main>
+</body>
+
+</html>
